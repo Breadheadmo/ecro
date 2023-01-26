@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1009437710030",
+    "project_id": "ecro-5b0a2",
+    "storage_bucket": "ecro-5b0a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009437710030:android:15894dd63cff99bc4d229f",
+        "android_client_info": {
+          "package_name": "com.mycompany.ecrologin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009437710030-snla0i3tb9kmck7eaai8na1430bcet05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr2gQ5MY9aRBqtlwY0ZYwVNbORDrrL9OI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009437710030-snla0i3tb9kmck7eaai8na1430bcet05.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1009437710030-vea99it34vsvqf64lcegtv9o4h7be0qi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.ecrologin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
