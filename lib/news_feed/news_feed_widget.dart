@@ -35,7 +35,6 @@ class _NewsFeedWidgetState extends State<NewsFeedWidget> {
           borderRadius: 30,
           borderWidth: 1,
           buttonSize: 60,
-          fillColor: Color(0xFFFFF059),
           icon: Icon(
             Icons.arrow_back_rounded,
             color: FlutterFlowTheme.of(context).primaryText,
@@ -62,43 +61,80 @@ class _NewsFeedWidgetState extends State<NewsFeedWidget> {
         child: Stack(
           children: [
             Align(
+              alignment: AlignmentDirectional(-0.2, -0.95),
+              child: Container(
+                width: 400,
+                height: 170,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).primaryText,
+                ),
+              ),
+            ),
+            Align(
               alignment: AlignmentDirectional(0, 0),
-              child: ListView(
-                padding: EdgeInsets.zero,
-                scrollDirection: Axis.vertical,
+              child: Stack(
                 children: [
-                  Container(
-                    width: 100,
-                    height: 250,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFFF059),
+                  Align(
+                    alignment: AlignmentDirectional(-0.67, -0.75),
+                    child: Text(
+                      'wsjnjcnejkndwqjnmc n \ndjknnkjsnxjxkanxjk',
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            fontSize: 25,
+                          ),
                     ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Container(
-                              width: 46,
-                              height: 46,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                              ),
-                              child: Image.network(
-                                'https://picsum.photos/seed/665/600',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            Text(
-                              '   Palesa Mollo',
-                              style: FlutterFlowTheme.of(context).bodyText1,
-                            ),
-                          ],
-                        ),
-                      ],
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(-0.89, -0.94),
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                      ),
+                      child: Image.asset(
+                        'assets/images/a1.jpeg',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(0.54, -0.91),
+                    child: Text(
+                      '14:09',
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            fontSize: 12,
+                          ),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(0.81, -0.91),
+                    child: Text(
+                      'Sep 13',
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            fontSize: 12,
+                          ),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(-0.54, -0.92),
+                    child: Text(
+                      'John Doe',
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            fontSize: 16,
+                          ),
                     ),
                   ),
                 ],
