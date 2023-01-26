@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -31,7 +32,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
       ],
     ),
   };
-  TextEditingController? confirmpController;
+  TextEditingController? confirmPasswordController;
+  late bool confirmPasswordVisibility;
   TextEditingController? emailController;
   TextEditingController? passwordController;
   late bool passwordVisibility;
@@ -42,7 +44,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
   void initState() {
     super.initState();
 
-    confirmpController = TextEditingController();
+    confirmPasswordController = TextEditingController();
+    confirmPasswordVisibility = false;
     emailController = TextEditingController();
     passwordController = TextEditingController();
     passwordVisibility = false;
@@ -51,7 +54,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
   @override
   void dispose() {
     _unfocusNode.dispose();
-    confirmpController?.dispose();
+    confirmPasswordController?.dispose();
     emailController?.dispose();
     passwordController?.dispose();
     super.dispose();
@@ -73,16 +76,41 @@ class _SignUpWidgetState extends State<SignUpWidget>
               fit: BoxFit.cover,
             ),
             Align(
-              alignment: AlignmentDirectional(-0.39, 0.19),
+              alignment: AlignmentDirectional(0.09, 0.2),
               child: Container(
                 width: 410,
                 child: TextFormField(
-                  controller: confirmpController,
+                  controller: confirmPasswordController,
+                  onFieldSubmitted: (_) async {
+                    GoRouter.of(context).prepareAuthEvent();
+                    if (passwordController?.text !=
+                        confirmPasswordController?.text) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Passwords don\'t match!',
+                          ),
+                        ),
+                      );
+                      return;
+                    }
+
+                    final user = await createAccountWithEmail(
+                      context,
+                      emailController!.text,
+                      passwordController!.text,
+                    );
+                    if (user == null) {
+                      return;
+                    }
+
+                    context.goNamedAuth('NewsFeed', mounted);
+                  },
                   autofocus: true,
-                  obscureText: false,
+                  obscureText: !confirmPasswordVisibility,
                   decoration: InputDecoration(
-                    labelText: 'Confirm Password',
-                    hintText: 'Enter Your email:',
+                    labelText: 'ConfirmPassword',
+                    hintText: 'Confirm Your Password:',
                     hintStyle: FlutterFlowTheme.of(context).bodyText2,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -126,10 +154,19 @@ class _SignUpWidgetState extends State<SignUpWidget>
                     ),
                     filled: true,
                     fillColor: Color(0x82FFFFFF),
-                    suffixIcon: Icon(
-                      Icons.remove_red_eye,
-                      color: Color(0xFF757575),
-                      size: 22,
+                    suffixIcon: InkWell(
+                      onTap: () => setState(
+                        () => confirmPasswordVisibility =
+                            !confirmPasswordVisibility,
+                      ),
+                      focusNode: FocusNode(skipTraversal: true),
+                      child: Icon(
+                        confirmPasswordVisibility
+                            ? Icons.visibility_outlined
+                            : Icons.visibility_off_outlined,
+                        color: Color(0xFF757575),
+                        size: 22,
+                      ),
                     ),
                   ),
                   style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -140,11 +177,82 @@ class _SignUpWidgetState extends State<SignUpWidget>
               ),
             ),
             Align(
+              alignment: AlignmentDirectional(-0.03, 0.73),
+              child: FFButtonWidget(
+                onPressed: () async {
+                  GoRouter.of(context).prepareAuthEvent();
+                  if (passwordController?.text !=
+                      confirmPasswordController?.text) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          'Passwords don\'t match!',
+                        ),
+                      ),
+                    );
+                    return;
+                  }
+
+                  final user = await createAccountWithEmail(
+                    context,
+                    emailController!.text,
+                    passwordController!.text,
+                  );
+                  if (user == null) {
+                    return;
+                  }
+
+                  context.pushNamedAuth('Congratulations', mounted);
+                },
+                text: 'SUBMIT',
+                options: FFButtonOptions(
+                  width: 235,
+                  height: 65,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                  borderSide: BorderSide(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    width: 3,
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation']!),
+            ),
+            Align(
               alignment: AlignmentDirectional(-0.11, -0.31),
               child: Container(
                 width: 410,
                 child: TextFormField(
                   controller: emailController,
+                  onFieldSubmitted: (_) async {
+                    GoRouter.of(context).prepareAuthEvent();
+                    if (passwordController?.text !=
+                        confirmPasswordController?.text) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Passwords don\'t match!',
+                          ),
+                        ),
+                      );
+                      return;
+                    }
+
+                    final user = await createAccountWithEmail(
+                      context,
+                      emailController!.text,
+                      passwordController!.text,
+                    );
+                    if (user == null) {
+                      return;
+                    }
+
+                    context.goNamedAuth('NewsFeed', mounted);
+                  },
                   autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
@@ -202,15 +310,40 @@ class _SignUpWidgetState extends State<SignUpWidget>
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.34, -0.06),
+              alignment: AlignmentDirectional(-0.16, -0.07),
               child: Container(
                 width: 410,
                 child: TextFormField(
                   controller: passwordController,
+                  onFieldSubmitted: (_) async {
+                    GoRouter.of(context).prepareAuthEvent();
+                    if (passwordController?.text !=
+                        confirmPasswordController?.text) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Passwords don\'t match!',
+                          ),
+                        ),
+                      );
+                      return;
+                    }
+
+                    final user = await createAccountWithEmail(
+                      context,
+                      emailController!.text,
+                      passwordController!.text,
+                    );
+                    if (user == null) {
+                      return;
+                    }
+
+                    context.goNamedAuth('NewsFeed', mounted);
+                  },
                   autofocus: true,
                   obscureText: !passwordVisibility,
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    labelText: 'Pasword',
                     hintText: 'Enter Your Password:',
                     hintStyle: FlutterFlowTheme.of(context).bodyText2,
                     enabledBorder: OutlineInputBorder(
@@ -275,30 +408,6 @@ class _SignUpWidgetState extends State<SignUpWidget>
                       ),
                 ),
               ),
-            ),
-            Align(
-              alignment: AlignmentDirectional(-0.03, 0.73),
-              child: FFButtonWidget(
-                onPressed: () {
-                  print('Button pressed ...');
-                },
-                text: 'SUBMIT',
-                options: FFButtonOptions(
-                  width: 235,
-                  height: 65,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
-                  borderSide: BorderSide(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    width: 3,
-                  ),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation']!),
             ),
           ],
         ),

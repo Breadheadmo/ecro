@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -14,6 +15,7 @@ class LoginWidget extends StatefulWidget {
 class _LoginWidgetState extends State<LoginWidget> {
   TextEditingController? emailController;
   TextEditingController? passwordController;
+  late bool passwordVisibility;
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -22,6 +24,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     super.initState();
     emailController = TextEditingController();
     passwordController = TextEditingController();
+    passwordVisibility = false;
   }
 
   @override
@@ -48,16 +51,30 @@ class _LoginWidgetState extends State<LoginWidget> {
               fit: BoxFit.cover,
             ),
             Align(
-              alignment: AlignmentDirectional(-0.28, 0.03),
+              alignment: AlignmentDirectional(0.47, 0.19),
               child: Container(
                 width: 410,
                 child: TextFormField(
                   controller: passwordController,
+                  onFieldSubmitted: (_) async {
+                    GoRouter.of(context).prepareAuthEvent();
+
+                    final user = await signInWithEmail(
+                      context,
+                      emailController!.text,
+                      passwordController!.text,
+                    );
+                    if (user == null) {
+                      return;
+                    }
+
+                    context.goNamedAuth('NewsFeed', mounted);
+                  },
                   autofocus: true,
-                  obscureText: false,
+                  obscureText: !passwordVisibility,
                   decoration: InputDecoration(
                     labelText: 'Password',
-                    hintText: 'Enter Your Password:',
+                    hintText: 'Enter Your  Password:',
                     hintStyle: FlutterFlowTheme.of(context).bodyText2,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -101,6 +118,19 @@ class _LoginWidgetState extends State<LoginWidget> {
                     ),
                     filled: true,
                     fillColor: Color(0x82FFFFFF),
+                    suffixIcon: InkWell(
+                      onTap: () => setState(
+                        () => passwordVisibility = !passwordVisibility,
+                      ),
+                      focusNode: FocusNode(skipTraversal: true),
+                      child: Icon(
+                        passwordVisibility
+                            ? Icons.visibility_outlined
+                            : Icons.visibility_off_outlined,
+                        color: Color(0xFF757575),
+                        size: 22,
+                      ),
+                    ),
                   ),
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Poppins',
@@ -110,11 +140,60 @@ class _LoginWidgetState extends State<LoginWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.05, -0.23),
+              alignment: AlignmentDirectional(0.03, 0.71),
+              child: FFButtonWidget(
+                onPressed: () async {
+                  GoRouter.of(context).prepareAuthEvent();
+
+                  final user = await signInWithEmail(
+                    context,
+                    emailController!.text,
+                    passwordController!.text,
+                  );
+                  if (user == null) {
+                    return;
+                  }
+
+                  context.pushNamedAuth('NewsFeed', mounted);
+                },
+                text: 'SUBMIT',
+                options: FFButtonOptions(
+                  width: 230,
+                  height: 63,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                  borderSide: BorderSide(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    width: 3,
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+            ),
+            Align(
+              alignment: AlignmentDirectional(0.23, -0.14),
               child: Container(
                 width: 410,
                 child: TextFormField(
                   controller: emailController,
+                  onFieldSubmitted: (_) async {
+                    GoRouter.of(context).prepareAuthEvent();
+
+                    final user = await signInWithEmail(
+                      context,
+                      emailController!.text,
+                      passwordController!.text,
+                    );
+                    if (user == null) {
+                      return;
+                    }
+
+                    context.goNamedAuth('NewsFeed', mounted);
+                  },
                   autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
@@ -168,30 +247,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                         fontFamily: 'Poppins',
                         lineHeight: 3,
                       ),
-                ),
-              ),
-            ),
-            Align(
-              alignment: AlignmentDirectional(0.03, 0.71),
-              child: FFButtonWidget(
-                onPressed: () {
-                  print('Button pressed ...');
-                },
-                text: 'SUBMIT',
-                options: FFButtonOptions(
-                  width: 230,
-                  height: 63,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
-                  borderSide: BorderSide(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    width: 3,
-                  ),
-                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
             ),

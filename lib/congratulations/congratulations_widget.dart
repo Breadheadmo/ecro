@@ -58,10 +58,15 @@ class _CongratulationsWidgetState extends State<CongratulationsWidget> {
             ),
             Align(
               alignment: AlignmentDirectional(-0.04, 0.06),
-              child: Icon(
-                Icons.verified_user_outlined,
-                color: Colors.black,
-                size: 290,
+              child: InkWell(
+                onTap: () async {
+                  context.pushNamed('NewsFeed');
+                },
+                child: Icon(
+                  Icons.verified_user_outlined,
+                  color: Colors.black,
+                  size: 290,
+                ),
               ),
             ),
             Align(
