@@ -1,4 +1,3 @@
-import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -81,31 +80,6 @@ class _SignUpWidgetState extends State<SignUpWidget>
                 width: 410,
                 child: TextFormField(
                   controller: confirmPasswordController,
-                  onFieldSubmitted: (_) async {
-                    GoRouter.of(context).prepareAuthEvent();
-                    if (passwordController?.text !=
-                        confirmPasswordController?.text) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Passwords don\'t match!',
-                          ),
-                        ),
-                      );
-                      return;
-                    }
-
-                    final user = await createAccountWithEmail(
-                      context,
-                      emailController!.text,
-                      passwordController!.text,
-                    );
-                    if (user == null) {
-                      return;
-                    }
-
-                    context.goNamedAuth('NewsFeed', mounted);
-                  },
                   autofocus: true,
                   obscureText: !confirmPasswordVisibility,
                   decoration: InputDecoration(
@@ -179,30 +153,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
             Align(
               alignment: AlignmentDirectional(-0.03, 0.73),
               child: FFButtonWidget(
-                onPressed: () async {
-                  GoRouter.of(context).prepareAuthEvent();
-                  if (passwordController?.text !=
-                      confirmPasswordController?.text) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          'Passwords don\'t match!',
-                        ),
-                      ),
-                    );
-                    return;
-                  }
-
-                  final user = await createAccountWithEmail(
-                    context,
-                    emailController!.text,
-                    passwordController!.text,
-                  );
-                  if (user == null) {
-                    return;
-                  }
-
-                  context.pushNamedAuth('Congratulations', mounted);
+                onPressed: () {
+                  print('Button pressed ...');
                 },
                 text: 'SUBMIT',
                 options: FFButtonOptions(
@@ -228,31 +180,6 @@ class _SignUpWidgetState extends State<SignUpWidget>
                 width: 410,
                 child: TextFormField(
                   controller: emailController,
-                  onFieldSubmitted: (_) async {
-                    GoRouter.of(context).prepareAuthEvent();
-                    if (passwordController?.text !=
-                        confirmPasswordController?.text) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Passwords don\'t match!',
-                          ),
-                        ),
-                      );
-                      return;
-                    }
-
-                    final user = await createAccountWithEmail(
-                      context,
-                      emailController!.text,
-                      passwordController!.text,
-                    );
-                    if (user == null) {
-                      return;
-                    }
-
-                    context.goNamedAuth('NewsFeed', mounted);
-                  },
                   autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
@@ -315,31 +242,6 @@ class _SignUpWidgetState extends State<SignUpWidget>
                 width: 410,
                 child: TextFormField(
                   controller: passwordController,
-                  onFieldSubmitted: (_) async {
-                    GoRouter.of(context).prepareAuthEvent();
-                    if (passwordController?.text !=
-                        confirmPasswordController?.text) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Passwords don\'t match!',
-                          ),
-                        ),
-                      );
-                      return;
-                    }
-
-                    final user = await createAccountWithEmail(
-                      context,
-                      emailController!.text,
-                      passwordController!.text,
-                    );
-                    if (user == null) {
-                      return;
-                    }
-
-                    context.goNamedAuth('NewsFeed', mounted);
-                  },
                   autofocus: true,
                   obscureText: !passwordVisibility,
                   decoration: InputDecoration(
