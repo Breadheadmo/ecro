@@ -72,10 +72,10 @@ class _ProductionWidgetState extends State<ProductionWidget> {
             Align(
               alignment: AlignmentDirectional(-0.07, -0.9),
               child: Container(
-                width: 389,
+                width: 398,
                 height: 280.8,
                 decoration: BoxDecoration(
-                  color: Color(0x82FFFFFF),
+                  color: FlutterFlowTheme.of(context).primaryText,
                 ),
               ),
             ),
@@ -100,7 +100,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                 '2020',
                 style: FlutterFlowTheme.of(context).title2.override(
                       fontFamily: 'Poppins',
-                      color: FlutterFlowTheme.of(context).primaryText,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                     ),
@@ -112,6 +112,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                 'Metric Ton',
                 style: FlutterFlowTheme.of(context).bodyText2.override(
                       fontFamily: 'Poppins',
+                      fontSize: 15,
                       fontWeight: FontWeight.normal,
                     ),
               ),
@@ -119,22 +120,23 @@ class _ProductionWidgetState extends State<ProductionWidget> {
             Align(
               alignment: AlignmentDirectional(-0.81, -0.74),
               child: Text(
-                'Production Volume',
+                'PRODUCTIN VOLUME',
                 style: FlutterFlowTheme.of(context).title2.override(
                       fontFamily: 'Poppins',
-                      color: FlutterFlowTheme.of(context).primaryText,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                     ),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.47, -0.87),
+              alignment: AlignmentDirectional(-0.47, -0.86),
               child: Text(
                 'John Doe',
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: 'Poppins',
-                      fontSize: 15,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      fontSize: 17,
                     ),
               ),
             ),
@@ -144,7 +146,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                 '757.12M',
                 style: FlutterFlowTheme.of(context).title2.override(
                       fontFamily: 'Poppins',
-                      color: FlutterFlowTheme.of(context).primaryText,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                     ),
@@ -156,6 +158,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                 'Peanut Crops Primary',
                 style: FlutterFlowTheme.of(context).bodyText2.override(
                       fontFamily: 'Poppins',
+                      fontSize: 15,
                       fontWeight: FontWeight.normal,
                     ),
               ),

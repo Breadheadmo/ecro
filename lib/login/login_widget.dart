@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -55,6 +56,20 @@ class _LoginWidgetState extends State<LoginWidget> {
                 width: 410,
                 child: TextFormField(
                   controller: passwordController,
+                  onFieldSubmitted: (_) async {
+                    GoRouter.of(context).prepareAuthEvent();
+
+                    final user = await signInWithEmail(
+                      context,
+                      emailController!.text,
+                      passwordController!.text,
+                    );
+                    if (user == null) {
+                      return;
+                    }
+
+                    context.goNamedAuth('NewsFeed', mounted);
+                  },
                   autofocus: true,
                   obscureText: !passwordVisibility,
                   decoration: InputDecoration(
@@ -127,8 +142,19 @@ class _LoginWidgetState extends State<LoginWidget> {
             Align(
               alignment: AlignmentDirectional(0.03, 0.71),
               child: FFButtonWidget(
-                onPressed: () {
-                  print('Button pressed ...');
+                onPressed: () async {
+                  GoRouter.of(context).prepareAuthEvent();
+
+                  final user = await signInWithEmail(
+                    context,
+                    emailController!.text,
+                    passwordController!.text,
+                  );
+                  if (user == null) {
+                    return;
+                  }
+
+                  context.pushNamedAuth('NewsFeed', mounted);
                 },
                 text: 'SUBMIT',
                 options: FFButtonOptions(
@@ -154,6 +180,20 @@ class _LoginWidgetState extends State<LoginWidget> {
                 width: 410,
                 child: TextFormField(
                   controller: emailController,
+                  onFieldSubmitted: (_) async {
+                    GoRouter.of(context).prepareAuthEvent();
+
+                    final user = await signInWithEmail(
+                      context,
+                      emailController!.text,
+                      passwordController!.text,
+                    );
+                    if (user == null) {
+                      return;
+                    }
+
+                    context.goNamedAuth('NewsFeed', mounted);
+                  },
                   autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
