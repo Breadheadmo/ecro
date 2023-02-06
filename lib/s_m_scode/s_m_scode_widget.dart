@@ -55,7 +55,7 @@ class _SMScodeWidgetState extends State<SMScodeWidget>
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFFFB600),
+      backgroundColor: Color(0xD4ACFD9C),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -66,7 +66,7 @@ class _SMScodeWidgetState extends State<SMScodeWidget>
                 child: FlutterFlowIconButton(
                   borderColor: FlutterFlowTheme.of(context).primaryText,
                   borderRadius: 30,
-                  borderWidth: 3,
+                  borderWidth: 2,
                   buttonSize: 60,
                   icon: Icon(
                     Icons.chevron_left,
@@ -84,42 +84,49 @@ class _SMScodeWidgetState extends State<SMScodeWidget>
                   'Verify SMS Code',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Poppins',
+                        color: FlutterFlowTheme.of(context).primaryText,
                         fontSize: 26,
                       ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-0.23, -0.63),
+                alignment: AlignmentDirectional(-0.45, -0.61),
                 child: Text(
                   'We have sent a six-digit code to your phone ',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
-                        fontSize: 18,
+                        fontFamily: 'Oswald',
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
                       ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-0.87, -0.46),
+                alignment: AlignmentDirectional(-0.85, -0.43),
                 child: Text(
                   'entering this code below',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
-                        fontSize: 18,
+                        fontFamily: 'Oswald',
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
                       ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.34, -0.55),
+                alignment: AlignmentDirectional(-0.41, -0.52),
                 child: Text(
                   'number. Please verify your phone number by',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
-                        fontSize: 18,
+                        fontFamily: 'Oswald',
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
                       ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0, -0.17),
+                alignment: AlignmentDirectional(0, -0.12),
                 child: PinCodeTextField(
                   appContext: context,
                   length: 4,
@@ -161,14 +168,14 @@ class _SMScodeWidgetState extends State<SMScodeWidget>
                   options: FFButtonOptions(
                     width: 250,
                     height: 65,
-                    color: FlutterFlowTheme.of(context).primaryText,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                           fontFamily: 'Poppins',
-                          color: Colors.white,
+                          color: FlutterFlowTheme.of(context).primaryText,
                           fontSize: 20,
                         ),
                     borderSide: BorderSide(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      color: FlutterFlowTheme.of(context).primaryText,
                       width: 3,
                     ),
                     borderRadius: BorderRadius.circular(8),

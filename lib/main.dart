@@ -122,9 +122,9 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'NewsFeed': NewsFeedWidget(),
-      'Weather': WeatherWidget(),
       'Price': PriceWidget(),
       'Production': ProductionWidget(),
+      'Weather': WeatherWidget(),
       'User': UserWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -177,14 +177,14 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  FontAwesomeIcons.cloudSunRain,
+                  FontAwesomeIcons.chartLine,
                   color: currentIndex == 1
                       ? FlutterFlowTheme.of(context).secondaryColor
                       : Color(0x00000000),
                   size: 24,
                 ),
                 Text(
-                  'Weather',
+                  'Price',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 1
@@ -201,14 +201,14 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  FontAwesomeIcons.chartLine,
+                  FontAwesomeIcons.percentage,
                   color: currentIndex == 2
                       ? FlutterFlowTheme.of(context).secondaryColor
                       : Color(0x00000000),
                   size: 24,
                 ),
                 Text(
-                  'Price',
+                  'Production',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 2
@@ -225,14 +225,14 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  FontAwesomeIcons.percentage,
+                  FontAwesomeIcons.cloudSunRain,
                   color: currentIndex == 3
                       ? FlutterFlowTheme.of(context).secondaryColor
                       : Color(0x00000000),
                   size: 24,
                 ),
                 Text(
-                  'Production',
+                  'Weather',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 3

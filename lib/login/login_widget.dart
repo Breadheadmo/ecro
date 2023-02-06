@@ -1,8 +1,11 @@
 import '../auth/auth_util.dart';
+import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginWidget extends StatefulWidget {
@@ -12,7 +15,23 @@ class LoginWidget extends StatefulWidget {
   _LoginWidgetState createState() => _LoginWidgetState();
 }
 
-class _LoginWidgetState extends State<LoginWidget> {
+class _LoginWidgetState extends State<LoginWidget>
+    with TickerProviderStateMixin {
+  final animationsMap = {
+    'buttonOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        ShakeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 1000.ms,
+          hz: 10,
+          offset: Offset(0, 0),
+          rotation: -0.873,
+        ),
+      ],
+    ),
+  };
   TextEditingController? emailController;
   TextEditingController? passwordController;
   late bool passwordVisibility;
@@ -22,6 +41,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   @override
   void initState() {
     super.initState();
+
     emailController = TextEditingController();
     passwordController = TextEditingController();
     passwordVisibility = false;
@@ -45,13 +65,13 @@ class _LoginWidgetState extends State<LoginWidget> {
         child: Stack(
           children: [
             Image.asset(
-              'assets/images/wheat_1.jpeg',
+              'assets/images/nut_nut.jpeg',
               width: double.infinity,
               height: double.infinity,
               fit: BoxFit.cover,
             ),
             Align(
-              alignment: AlignmentDirectional(0.47, 0.19),
+              alignment: AlignmentDirectional(-0.15, 0.12),
               child: Container(
                 width: 410,
                 child: TextFormField(
@@ -172,10 +192,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                   ),
                   borderRadius: BorderRadius.circular(8),
                 ),
-              ),
+              ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation']!),
             ),
             Align(
-              alignment: AlignmentDirectional(0.23, -0.14),
+              alignment: AlignmentDirectional(-0.22, -0.22),
               child: Container(
                 width: 410,
                 child: TextFormField(

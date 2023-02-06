@@ -26,9 +26,9 @@ class _ProductionWidgetState extends State<ProductionWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFFFF059),
+      backgroundColor: Color(0xD4ACFD9C),
       appBar: AppBar(
-        backgroundColor: Color(0xFFFFF059),
+        backgroundColor: Color(0xD4ACFD9C),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -71,39 +71,41 @@ class _ProductionWidgetState extends State<ProductionWidget> {
             ),
             Align(
               alignment: AlignmentDirectional(-0.07, -0.9),
-              child: Container(
-                width: 398,
-                height: 280.8,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primaryText,
+              child: Material(
+                color: Colors.transparent,
+                elevation: 10,
+                child: Container(
+                  width: 376.3,
+                  height: 302,
+                  decoration: BoxDecoration(
+                    color: Color(0x82FFFFFF),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: Image.asset(
+                        'assets/images/PEAS.jpeg',
+                      ).image,
+                    ),
+                    border: Border.all(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      width: 4,
+                    ),
+                  ),
                 ),
               ),
             ),
             Align(
               alignment: AlignmentDirectional(-0.87, -0.9),
               child: Container(
-                width: 50,
-                height: 50,
+                width: 54,
+                height: 54,
                 clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                 ),
                 child: Image.asset(
-                  'assets/images/a1.jpeg',
+                  'assets/images/inkoks.png',
                   fit: BoxFit.cover,
                 ),
-              ),
-            ),
-            Align(
-              alignment: AlignmentDirectional(0.8, -0.73),
-              child: Text(
-                '2020',
-                style: FlutterFlowTheme.of(context).title2.override(
-                      fontFamily: 'Poppins',
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                    ),
               ),
             ),
             Align(
@@ -112,65 +114,79 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                 'Metric Ton',
                 style: FlutterFlowTheme.of(context).bodyText2.override(
                       fontFamily: 'Poppins',
-                      fontSize: 15,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      fontSize: 17,
                       fontWeight: FontWeight.normal,
                     ),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.81, -0.74),
+              alignment: AlignmentDirectional(-0.83, -0.71),
               child: Text(
-                'PRODUCTIN VOLUME',
+                'PRODUCTION VOLUME',
                 style: FlutterFlowTheme.of(context).title2.override(
                       fontFamily: 'Poppins',
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      fontSize: 15,
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.47, -0.86),
+              alignment: AlignmentDirectional(-0.48, -0.88),
               child: Text(
-                'John Doe',
+                'Inoks',
                 style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: 'Poppins',
+                      fontFamily: 'Oswald',
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       fontSize: 17,
                     ),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.84, -0.56),
+              alignment: AlignmentDirectional(-0.86, -0.55),
               child: Text(
                 '757.12M',
                 style: FlutterFlowTheme.of(context).title2.override(
-                      fontFamily: 'Poppins',
+                      fontFamily: 'Oswald',
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      fontSize: 18,
+                      fontSize: 20,
                       fontWeight: FontWeight.w600,
                     ),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.79, -0.35),
+              alignment: AlignmentDirectional(-0.82, -0.3),
               child: Text(
                 'Peanut Crops Primary',
                 style: FlutterFlowTheme.of(context).bodyText2.override(
-                      fontFamily: 'Poppins',
-                      fontSize: 15,
+                      fontFamily: 'Roboto Condensed',
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      fontSize: 18,
                       fontWeight: FontWeight.normal,
                     ),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.7, -0.46),
+              alignment: AlignmentDirectional(-0.69, -0.44),
               child: Text(
                 '35.69% of global production share',
                 style: FlutterFlowTheme.of(context).bodyText2.override(
                       fontFamily: 'Poppins',
-                      fontSize: 15,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      fontSize: 17,
                       fontWeight: FontWeight.normal,
+                    ),
+              ),
+            ),
+            Align(
+              alignment: AlignmentDirectional(0.88, -0.71),
+              child: Text(
+                '2020',
+                style: FlutterFlowTheme.of(context).bodyText1.override(
+                      fontFamily: 'Oswald',
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      fontSize: 16,
                     ),
               ),
             ),

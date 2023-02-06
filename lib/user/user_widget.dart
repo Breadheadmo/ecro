@@ -25,11 +25,11 @@ class _UserWidgetState extends State<UserWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0x82FFFFFF),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Image.asset(
-          'assets/images/tracktor_3.jpg',
+          'assets/images/PEAS.jpeg',
           width: double.infinity,
           height: double.infinity,
           fit: BoxFit.cover,

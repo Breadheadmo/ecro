@@ -83,19 +83,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => SignUpWidget(),
             ),
             FFRoute(
-              name: 'Login',
-              path: 'login',
-              builder: (context, params) => LoginWidget(),
-            ),
-            FFRoute(
               name: 'OTP1',
               path: 'otp1',
               builder: (context, params) => Otp1Widget(),
             ),
             FFRoute(
-              name: 'SMScode',
-              path: 'sMScode',
-              builder: (context, params) => SMScodeWidget(),
+              name: 'Login',
+              path: 'login',
+              builder: (context, params) => LoginWidget(),
             ),
             FFRoute(
               name: 'Congratulations',
@@ -103,18 +98,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CongratulationsWidget(),
             ),
             FFRoute(
+              name: 'SMScode',
+              path: 'sMScode',
+              builder: (context, params) => SMScodeWidget(),
+            ),
+            FFRoute(
               name: 'NewsFeed',
               path: 'newsFeed',
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'NewsFeed')
                   : NewsFeedWidget(),
-            ),
-            FFRoute(
-              name: 'Weather',
-              path: 'weather',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Weather')
-                  : WeatherWidget(),
             ),
             FFRoute(
               name: 'Price',
@@ -129,6 +122,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'Production')
                   : ProductionWidget(),
+            ),
+            FFRoute(
+              name: 'Weather',
+              path: 'weather',
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Weather')
+                  : WeatherWidget(),
             ),
             FFRoute(
               name: 'User',

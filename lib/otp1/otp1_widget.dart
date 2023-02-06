@@ -53,7 +53,7 @@ class _Otp1WidgetState extends State<Otp1Widget> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFFFB600),
+      backgroundColor: Color(0xD4ACFD9C),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Stack(
@@ -119,29 +119,31 @@ class _Otp1WidgetState extends State<Otp1Widget> with TickerProviderStateMixin {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.57, -0.58),
+              alignment: AlignmentDirectional(-0.12, -0.61),
               child: Text(
                 'Enter  your phone number, we will send an SMS ',
                 style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: 'Poppins',
-                      fontSize: 17,
+                      fontFamily: 'Oswald',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
                     ),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.73, -0.5),
+              alignment: AlignmentDirectional(-0.86, -0.53),
               child: Text(
                 'verification code to this number.',
                 style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
+                      fontFamily: 'Oswald',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
                     ),
               ),
             ),
             Align(
               alignment: AlignmentDirectional(-0.26, -0.29),
               child: Container(
-                width: 410,
+                width: 355,
                 child: TextFormField(
                   controller: textController,
                   autofocus: true,

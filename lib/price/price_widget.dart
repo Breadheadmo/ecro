@@ -28,11 +28,15 @@ class _PriceWidgetState extends State<PriceWidget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-        child: Image.asset(
-          'assets/images/tracktor_3.jpg',
-          width: double.infinity,
-          height: double.infinity,
-          fit: BoxFit.cover,
+        child: Stack(
+          children: [
+            Image.asset(
+              'assets/images/NUTS4.jpeg',
+              width: double.infinity,
+              height: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ],
         ),
       ),
     );

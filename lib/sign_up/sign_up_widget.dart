@@ -69,16 +69,19 @@ class _SignUpWidgetState extends State<SignUpWidget>
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Stack(
           children: [
-            Image.asset(
-              'assets/images/wheat_1.jpeg',
-              width: double.infinity,
-              height: double.infinity,
-              fit: BoxFit.cover,
+            Align(
+              alignment: AlignmentDirectional(0, 0),
+              child: Image.asset(
+                'assets/images/NUTS4.jpeg',
+                width: double.infinity,
+                height: double.infinity,
+                fit: BoxFit.cover,
+              ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.09, 0.2),
+              alignment: AlignmentDirectional(-0.16, 0.17),
               child: Container(
-                width: 410,
+                width: 365,
                 child: TextFormField(
                   controller: confirmPasswordController,
                   onFieldSubmitted: (_) async {
@@ -202,7 +205,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                     return;
                   }
 
-                  context.pushNamedAuth('NewsFeed', mounted);
+                  context.pushNamedAuth('Congratulations', mounted);
                 },
                 text: 'SUBMIT',
                 options: FFButtonOptions(
@@ -225,7 +228,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
             Align(
               alignment: AlignmentDirectional(-0.11, -0.31),
               child: Container(
-                width: 410,
+                width: 365,
                 child: TextFormField(
                   controller: emailController,
                   onFieldSubmitted: (_) async {
@@ -310,9 +313,9 @@ class _SignUpWidgetState extends State<SignUpWidget>
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.16, -0.07),
+              alignment: AlignmentDirectional(-0.21, -0.07),
               child: Container(
-                width: 410,
+                width: 365,
                 child: TextFormField(
                   controller: passwordController,
                   onFieldSubmitted: (_) async {

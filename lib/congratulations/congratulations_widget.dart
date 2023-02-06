@@ -31,7 +31,7 @@ class _CongratulationsWidgetState extends State<CongratulationsWidget> {
         child: Stack(
           children: [
             Image.asset(
-              'assets/images/tracktor_4.jpg',
+              'assets/images/PEAS.jpeg',
               width: double.infinity,
               height: double.infinity,
               fit: BoxFit.cover,
@@ -42,6 +42,7 @@ class _CongratulationsWidgetState extends State<CongratulationsWidget> {
                 'ALL SET!',
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: 'Poppins',
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       fontSize: 45,
                     ),
               ),
@@ -52,6 +53,7 @@ class _CongratulationsWidgetState extends State<CongratulationsWidget> {
                 'You\'re Ready To Go.',
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: 'Poppins',
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       fontSize: 20,
                     ),
               ),
@@ -64,25 +66,25 @@ class _CongratulationsWidgetState extends State<CongratulationsWidget> {
                 },
                 child: Icon(
                   Icons.verified_user_outlined,
-                  color: Colors.black,
-                  size: 290,
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  size: 355,
                 ),
               ),
             ),
             Align(
               alignment: AlignmentDirectional(-0.02, 0.86),
               child: FlutterFlowIconButton(
-                borderColor: FlutterFlowTheme.of(context).primaryText,
+                borderColor: FlutterFlowTheme.of(context).secondaryBackground,
                 borderRadius: 30,
                 borderWidth: 4,
                 buttonSize: 80,
                 icon: Icon(
                   Icons.navigate_next,
-                  color: FlutterFlowTheme.of(context).primaryText,
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
                   size: 40,
                 ),
-                onPressed: () {
-                  print('IconButton pressed ...');
+                onPressed: () async {
+                  context.pushNamed('NewsFeed');
                 },
               ),
             ),
